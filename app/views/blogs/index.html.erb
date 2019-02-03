@@ -1,0 +1,12 @@
+<ul class="list_article">
+  <% @blog.each do |blog| %>
+  <li>
+    <h2><%= blog.title %></h2>
+    <% if blog.image != "" %>
+      <p><img src="<%= blog.image %>"></p>
+    <% end %>
+    <p><%= blog.content %></p>
+    <p><%= blog.created_at %></p>
+  </li>
+  <% end %>
+</ul>
