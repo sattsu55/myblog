@@ -1,12 +1,20 @@
 <div class="contents row">
   <a href="/">一覧にもどる</a>
-  <%= form_tag("/blogs/#{@blog.id}", method: :patch) do %>
-    <h3>
-      編集する
-    </h3>
-    <p><input type="text" name="title" placeholder="タイトル" value="<%= @blog.title %>"></p>
-    <p><input type="text" name="image" placeholder="Image Url" value="<%= @blog.image %>"></p>
-    <textarea name="content" placeholder="記事を編集してください" rows="10" cols="50"><%= @blog.content %></textarea>
-    <p><input type="submit" value="投稿"></p>
+  <%= form_for @blog do |f| %>
+    <div class="field">
+      <%= f.label:"タイトル" %>
+      <%= f.text_field :title %>
+    </div>
+    <div class="field">
+      <%= f.label:"image" %>
+      <%= f.text_field :image %>
+    </div>
+    <div class="field">
+      <%= f.label:"記事" %>
+      <%= f.text_area :content %>
+    </div>
+    <div class ="actions">
+      <%= f.submit "投稿" %>
+    </div>
   <% end %>
 </div>
