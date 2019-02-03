@@ -16,6 +16,7 @@ class BlogsController < ApplicationController
 
     def edit
         @blog = Blog.find(params[:id])
+        redirect_to action: :index unless @blog.user_id == current_user.id
     end
 
     def update
