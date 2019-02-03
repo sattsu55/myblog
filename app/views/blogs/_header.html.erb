@@ -1,14 +1,14 @@
 <nav class="blue lighten-2">
   <div class="nav-wrapper">
-    <a href="#" class="brand-logo center">Logo</a>
+    <a href="/" class="brand-logo center">Myblog</a>
     <ul id="nav-mobile" class="left hide-on-med-and-down">
     <% if user_signed_in? %>
       <li>ユーザー：<%= current_user.nickname %>さん</li>
-      <li><%= link_to "新規投稿",new_blog_path %></li>
-      <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+      <li><%= link_to "NEW",new_blog_path %></li>
+      <li><%= link_to "LOG OUT", destroy_user_session_path, method: :delete %></li>
     <% else %>
-      <li><%= link_to "ログイン", new_user_session_path, class: 'post' %></li>
-      <li><%= link_to "新規登録", new_user_registration_path, class: 'post' %></li>
+      <li><%= link_to "LOG IN", new_user_session_path, class: 'post' %></li>
+      <li><%= link_to "SING UP", new_user_registration_path, class: 'post' %></li>
     <% end %>
     </ul>
   </div>

@@ -1,23 +1,2 @@
 <%= render :partial => "header" %>
-<ul class="list_article">
-  <% @blog.each do |blog| %>
-  <li>
-    <h2><%= blog.title %></h2>
-    <% if blog.image != "" %>
-      <p><img src="<%= blog.image %>"></p>
-    <% end %>
-
-    <p><%= blog.content %></p>
-
-    <p><%= blog.created_at %></p>
-    <p><%= blog.user.nickname %></p>
-
-    <% if user_signed_in? && current_user.id == blog.user_id %>
-      <ul>
-        <li><%= link_to '編集', "/blogs/#{blog.id}/edit", method: :get %></li>
-        <li><%= link_to '削除', "/blogs/#{blog.id}", method: :delete %></li>
-      </ul>
-    <% end %>
-  </li>
-  <% end %>
-</ul>
+<%= render :partial => "main" %>
