@@ -19,6 +19,10 @@ class BlogsController < ApplicationController
         redirect_to action: :index unless @blog.user_id == current_user.id
     end
 
+    def new
+        @blog = Blog.new
+    end
+
     def update
         blog = Blog.find(params[:id])
         blog.update(blog_params) if blog.user_id == current_user.id
@@ -26,7 +30,7 @@ class BlogsController < ApplicationController
 
     private
     def blog_params
-        params.permit(:title, :image, :content).merge(user_id: current_user.id)
+        params.require(:blog).permit(:title, :image, :content).merge(user_id: current_user.id)
     end
 
     def move_to_index
