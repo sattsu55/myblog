@@ -5,6 +5,10 @@ class BlogsController < ApplicationController
 		@blog = Blog.includes(:user).all.order("id DESC").page(params[:page]).per(5)
 	end
 
+    def show
+        @blog = Blog.find(params[:id])
+    end
+
     def create
         Blog.create(blog_params)
     end
