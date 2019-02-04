@@ -1,5 +1,6 @@
 <%= render :partial => "header" %>
 <main>
+  <!-- ブログ詳細 -->
   <div class="container">
     <div class="item card-panel hoverable">
       <h2><%= @blog.title %></h2>
@@ -17,6 +18,19 @@
       <% end %>
     </div>
   </div>
+  <!-- コメント一覧 -->
+  <div class="container">
+    <div class="item card-panel hoverable">
+      <h5>コメント一覧</h5>
+      <% @comments.each do |comment| %>
+        <div class="item card-panel hoverable">
+          <p><%= comment.text %></p>
+          <p><%= comment.user.nickname %>さん</p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <!-- コメントフォーム -->
   <div class="container">
     <% if current_user %>
       <%= form_with model: [@blog,Comment.new] do |f| %>
