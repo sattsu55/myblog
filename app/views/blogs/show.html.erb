@@ -33,7 +33,7 @@
   <!-- コメントフォーム -->
   <div class="container">
     <% if current_user %>
-      <%= form_with model: [@blog,Comment.new] do |f| %>
+      <%= form_with url: "/blogs/#{@blog.id}/comments" do |f| %>
         <div class="field">
           <%= f.label :"コメント" %>
           <%= f.text_area :text,placeholder: "コメントを入力してください"%>
