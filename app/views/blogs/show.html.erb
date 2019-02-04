@@ -17,4 +17,17 @@
       <% end %>
     </div>
   </div>
+  <div class="container">
+    <% if current_user %>
+      <%= form_with model: [@blog,Comment.new] do |f| %>
+        <div class="field">
+          <%= f.label :"コメント" %>
+          <%= f.text_area :text,placeholder: "コメントを入力してください"%>
+        </div>
+        <div class="actions">
+          <%= f.submit "投稿" %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 </main>
