@@ -20,7 +20,7 @@
   </div>
   <!-- コメント一覧 -->
   <div class="container">
-    <div class="item card-panel hoverable">
+    <div id="comment-index" class="item card-panel hoverable">
       <h5>コメント一覧</h5>
       <% @comments.each do |comment| %>
         <div class="item card-panel hoverable">
@@ -33,7 +33,7 @@
   <!-- コメントフォーム -->
   <div class="container">
     <% if current_user %>
-      <%= form_with model: [@blog,Comment.new] do |f| %>
+      <%= form_with model: [@blog,Comment.new],id: :comment_form,local: true do |f| %>
         <div class="field">
           <%= f.label :"コメント" %>
           <%= f.text_area :text,placeholder: "コメントを入力してください"%>
