@@ -22,6 +22,8 @@ $(function(){
 	    .done(function(data){
 	      var html = buildHTML(data);
 	      $('#comment-index').append(html)
+	      $('#comment_text').val('')
+	      $('#form_submit').attr('disabled', false)
 	    })
 	});
 });

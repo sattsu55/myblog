@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-	before_action :move_to_index, except: :index
+	before_action :move_to_index, except: [:index,:show]
 
 	def index
 		@blog = Blog.includes(:user).all.order("id DESC").page(params[:page]).per(5)
