@@ -6,6 +6,7 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'pry-rails'
 gem 'kaminari'
+gem 'webpacker', github: 'rails/webpacker'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
 # Use mysql as the database for Active Record
